@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
 import {HttpClientModule} from '@angular/common/http'
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2GoogleChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,18 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class IplService {
 
-  baseUrl = "https://flask-ipl.herokuapp.com/ipl/"
+  baseUrl = "https://ipl-2020.herokuapp.com/ipl/"
   
 
   constructor(private http:HttpClient) { }
 
   teamLabels():Observable<any>{
-    let url = `${this.baseUrl}team/labels`;
+    let url = `${this.baseUrl}labels`;
     return this.http.get<any>(url); 
   };
 
   getPlayersByTeamName(teamName):Observable<any>{
-    let url = `${this.baseUrl}teams/${teamName}`;
+    let url = `${this.baseUrl}team/${teamName}`;
+    return this.http.get<any>(url)
+  }
+
+  getTeamRoleStat(teamname):Observable<any>{
+    let url = `${this.baseUrl}team/rolestat/${teamname}`
     return this.http.get<any>(url)
   }
 

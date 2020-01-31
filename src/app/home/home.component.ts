@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IplService } from '../Services/ipl.service';
+import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { IplService } from '../Services/ipl.service';
 })
 export class HomeComponent implements OnInit {
 
-  details;
+  pieChart: GoogleChartInterface
+  players;
   teamName;
   teamNames = [];
 
@@ -17,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.iplService.teamLabels().subscribe(res=>{
-      this.teamNames = res['label'];
+      this.teamNames = res['labels'];
       console.log(res)
     })
   }
@@ -26,10 +28,31 @@ export class HomeComponent implements OnInit {
     this.teamName = event.target.value;
     if (this.teamName.trim()) {
       this.iplService.getPlayersByTeamName(this.teamName).subscribe(res=>{
-        this.details = res;
-        console.log(res, this.details)
+        this.players = res["players"];
+        
       })
 
+      this.iplService.getTeamRoleStat(this.teamName).subscribe(res=>{
+        let stat = res["stat"];
+        let data = []
+        data.push(["Role","Count"]);
+        for(let s of stat){
+          data.push([s["role"],s['count']])
+        }
+        this.showRoleStatChart(data);
+      })
+
+    }
+  }
+
+  showRoleStatChart(data){
+    console.log(data)
+    this.pieChart = {
+      chartType: "PieChart",
+      dataTable: data,
+      options: {'Role':'Count',
+      'width':500,
+      'height':400}
     }
   }
 }
