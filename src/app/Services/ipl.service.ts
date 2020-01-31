@@ -36,8 +36,14 @@ export class IplService {
     return this.http.get<any>(url)
   }
 
-  getPlayersPriceByTeam(teamname):Observable<any>{
-    let url = `${this.baseUrl}team/${teamname}/totalprice`
+  getTotalPrice():Observable<any>{
+
+    let url = `${this.baseUrl}team/totalprice`
+    return this.http.get<any>(url)
+  }
+  
+  getPriceByTeam(teamname):Observable<any>{
+    let url = `${this.baseUrl}team/${teamname}/price`
     return this.http.get<any>(url)
   }
 }
