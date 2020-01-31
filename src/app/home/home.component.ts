@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPlayers(event) {
-    this.teamName = event.target.value;
+    this.teamName = event.value;
     if (this.teamName.trim()) {
       this.iplService.getPlayersByTeamName(this.teamName).subscribe(res=>{
         this.players = res["players"];

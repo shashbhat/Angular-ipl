@@ -8,6 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
 import {HttpClientModule} from '@angular/common/http'
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material
+import { MatSliderModule } from '@angular/material/slider';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,12 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     AppRoutingModule,
     HttpClientModule,
     Ng2GoogleChartsModule,
+    BrowserAnimationsModule,
+
+    // Angular Material
+    MatSliderModule,
+    MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
