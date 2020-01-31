@@ -1,1 +1,43 @@
-<p>team works!</p>
+<div class="col-md-6">
+
+  <h3>Teams</h3>
+  <div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Label
+                </th>
+                <th>
+            Team
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Coach
+        </th>
+        <th>
+            Home
+        </th>
+    </tr>
+    
+</thead>
+<tbody>
+    <tr *ngFor="let team of teamDetails">
+        <td >{{team.label}}</td>
+        <td >{{team.team}}</td>
+        <td >{{team.city}}</td>
+        <td >{{team.coach}}</td>
+        <td >{{team.home}}</td>
+    </tr>
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="col-md-6">
+
+</div>

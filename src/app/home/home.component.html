@@ -34,7 +34,11 @@
   <div class="col-md-4">   
 
     <div *ngIf="pieChart">
-      <google-chart [data]="pieChart"></google-chart>
+      <google-chart [data]="pieChart" (chartSelect) = "onChartSelect($event)" ></google-chart>
+    </div>
+
+    <div *ngIf="pieChart">
+      <google-chart [data]="tableChart" ></google-chart>
     </div>
 
   </div>

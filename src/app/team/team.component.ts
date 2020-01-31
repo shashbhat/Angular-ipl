@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IplService } from '../Services/ipl.service';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  teamDetails;
+
+  constructor(private iplService:IplService) { }
 
   ngOnInit() {
+    this.iplService.getTeamDetails().subscribe(res=>{
+      this.teamDetails = res['teams'];
+      console.log(this.teamDetails)
+    })
+  }
+
+  getTeamDetails(){
+    
   }
 
 }
