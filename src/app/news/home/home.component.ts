@@ -12,4 +12,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  sportsNews(){
+    console.log('hello')
+  }
+
+  businessNews(){
+    console.log('hello')
+  }
 }
